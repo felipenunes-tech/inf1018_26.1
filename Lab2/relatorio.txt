@@ -1,0 +1,8 @@
+Relatorio Lab2 Felipe Nunes:
+
+1:
+Um inteiro tem 4 bytes.
+Um long tem 8 bytes.
+Um short tem 2 bytes.
+
+Toda string termina com um \0, então, no exemplo nós estammos vendo cada elemento + o \0.
