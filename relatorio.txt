@@ -1,0 +1,29 @@
+Relatorio Lab1 Felipe Nunes:
+
+Considerando que farei todos os LABS no github codespace.
+
+Anotações;
+pwd -> escobrir quem é o diretório corrente.
+ls -> exibir todo conteúdo
+mkdir -> cria uma pasta
+cd -> "Movimenta" até o conteúdo
+
+Respostas;
+
+2 e 3;
+pwd -> Exibiu; /workspaces/inf1018
+mkdir inf1018 - > criou a pasta inf1018
+cd inf1018 -> Me levou para dentro da pasta
+pwd -> /workspaces/inf1018/inf1018
+
+4:
+gcc -Wall -o nomeExecutavel nomeArquivo
+./ex1 -> executa, se tiver parametros, por os parametros, se não, só executa
+ex1-> bash: ex1: command not found
+
+Com o cabeçalho, rodou normal, porém no ex3.c como n tinha o cabeçalho deu erro, não foi possível encontrar a função foo
+O resultado foi 0.00
+
+5:
+As chamadas são passados o endereço em que as variaveis estão localizadas e o tamanho.
+ele mostra o conteúdo na memória e quantos bytes ele ocupa
