@@ -1,0 +1,12 @@
+Relatorio Lab4 Felipe Nunes
+
+1:
+Para conferir a veracidade primeiro foi feito a conversão dos valores para binário, 
+150 em bin = 10010110, como o char com sinal suporta apenas do -128 até o 127, e também como nos números com sinal, qual o 
+bit mais significativo é 1 foi foito o complemento a 2 para pder converter de bin para dec, mas como a dump é imprime em hex
+será impresso o valor 96.
+
+char 150 -> 96
+short -3 ->  FD | FF
+int -151 -> 69 | FF | FF | FF
+
