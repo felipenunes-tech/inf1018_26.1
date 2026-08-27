@@ -5,4 +5,16 @@ Um inteiro tem 4 bytes.
 Um long tem 8 bytes.
 Um short tem 2 bytes.
 
+2:
 Toda string termina com um \0, então, no exemplo nós estammos vendo cada elemento + o \0.
+
+a -> A função percorre a string caractere por caractere.
+A cada volta do laço, ela multiplica o valor acumulado em a por 10 (para avançar uma casa decimal)
+e soma o valor numérico do caractere atual. Valor de (*s - '0') a cada iteração. Calcula o valor inteiro do caractere
+atual subtraindo o código ASCII do caractere '0'. Para a string "1234",
+os valores gerados a cada passo são consecutivamente 1, 2, 3 e 4.
+
+c -> Para converter strings contendo numerais em bases maiores que 10 (até a base 36), utilizamos as letras 'a'-'z' (ou 'A'-'Z') 
+para representar os dígitos de 10 a 35. Na função, verificamos se o caractere é um dígito numérico com isdigit() 
+(subtraindo '0') ou se é uma letra (convertendo com tolower() e ajustando o valor subtraindo 'a' e somando 10). 
+Além disso, multiplicamos o acumulador pela base passada como parâmetro em vez de um valor fixo.
