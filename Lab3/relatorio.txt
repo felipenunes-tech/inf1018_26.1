@@ -1,0 +1,25 @@
+Relatorio Lab3 Felipe Nunes:
+
+1:
+O byte menos significativo de x e os outros bits em 0 foi obtido utilizando uma máscara com o operador E bit a bit (& 0x000000FF), 
+que zera todos os bits superiores e preserva apenas o último byte.
+O byte mais significativo com todos os bits em '1' e os outros bytes com o mesmo valor dos bytes de x foi obtido
+utilizando o operador OU bit a bit com uma máscara (| 0xFF000000), 
+forçando o byte mais significativo a 0xFF enquanto mantém inalterados os demais bytes da variável original.
+
+2:
+
+A função odd_ones foi implementada para verificar se o número de bits '1' de um inteiro sem sinal é ímpar
+utilizando operações bit a bit, sem recorrer ao operador %.
+
+Utilizou-se a técnica de reduções sucessivas por XOR (^) combinada com deslocamentos à direita (>>),
+colapsando a paridade de todos os 32 bits para o bit menos significativo, que é então isolado 
+através de uma máscara E bit a bit (& 1).
+
+A cada iteração, o operador E bit a bit com a máscara 1 (x & 1) verifica se o bit menos significativo é 1,
+ acumulando a contagem, e o número é deslocado para a direita (x >>= 1) para inspecionar o próximo bit.
+
+Ao término do laço, a verificação final utiliza count & 1 para retornar 0 se a quantidade total de bits '1' for par, 
+ou um valor diferente de 0 se for ímpar.
+
+3:
