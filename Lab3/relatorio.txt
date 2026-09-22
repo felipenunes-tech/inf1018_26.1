@@ -22,4 +22,13 @@ A cada iteração, o operador E bit a bit com a máscara 1 (x & 1) verifica se o
 Ao término do laço, a verificação final utiliza count & 1 para retornar 0 se a quantidade total de bits '1' for par, 
 ou um valor diferente de 0 se for ímpar.
 
-3:
+3: 
+A)
+(x << 4) desloca os 4 bits menos significativos para a esquerda
+(x >> 4) desloca os 4 bits mais significativos para a direita
+O operador '|' unifica as duas metades
+
+B)
+(x << n) desloca o valor 'n' bits para a esquerda
+(x >> (8 - n)) recupera os 'n' bits mais significativos que "caíram" e os posiciona à direita
+Cast para unsigned char é feito implicitamente ou por garantia de tipo
