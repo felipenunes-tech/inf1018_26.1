@@ -1,0 +1,41 @@
+1:
+  - Utiliza o registrador '%ebx' como contador de controle (i = 0 até 4).
+  - Utiliza o registrador '%r12' para gerenciar o ponteiro do array ('p = nums').
+  - A cada iteração, valida a condição de término (i == 4) via 'cmpl' e 'je L2'.
+  - Carrega o conteúdo apontado por '%r12' para '%eax' através de endereçamento 
+  indireto em memória '(%r12)', passando-o corretamente como segundo parâmetro 
+  ('%esi') para a função 'printf'.
+  - O laço avança iterativamente somando 4 bytes ao ponteiro ('addq $4, %r12') 
+  e incrementando o índice ('addl $1, %ebx'), retornando ao início por salto 
+  incondicional ('jmp L1').
+
+2:
+  - Compartilha a mesma estrutura base de controle de laço do Programa 1.
+  - Inicializa o acumulador 'sum' em '%eax' com o valor zero ('movl $0, %eax').
+  - Realiza a operação aritmética diretamente na iteração utilizando a instrução 
+  de adição de 32 bits combinada com endereçamento indireto: 'addl (%r12), %eax'.
+  - Após a exaustão do laço, posiciona o total acumulado em '%esi', prepara o 
+  registrador '%eax' com o valor zero (requisito obrigatório para chamadas de 
+  funções variádicas como o 'printf') e executa a chamada final.
+
+3:
+  - Adiciona o uso do registrador 'callee-saved' adicional '%r13' (utilizando sua 
+  fração de 32 bits, '%r13d'), o que resultou na expansão do espaço alocado na pilha 
+  no prólogo para 32 bytes ('subq $32, %rsp') e salvaguardando o seu conteúdo 
+  no deslocamento '-24(%rbp)'.
+  - A lógica de verificação de paridade evita o uso de instruções de divisão 
+  custosas, aplicando uma operação lógica bit a bit ('andl $1, %r13d') para 
+  isolar o bit menos significativo.
+  - O desvio condicional 'jnz DpsIf' (Jump if Not Zero) ignora o bloco de 
+  impressão caso o número seja ímpar.
+  - A integridade do ponteiro '%r12' é preservada em todas as etapas, assegurando 
+  estabilidade e evitando falhas de segmentação.
+
+  4:
+  - O array estático `nums` foi modificado de `.int` para `.byte`, alterando 
+  a alocação de cada elemento de blocos de 4 bytes para unidades individuais 
+  de 1 byte (8 bits) na memória.
+  - Diferente dos arrays de inteiros onde o avanço iterativo exigia o incremento 
+  de 4 bytes (`addq $4, %r12`), o array de bytes consome uma unidade por 
+  elemento. O deslocamento do ponteiro passou a ser de 1 byte por iteração 
+  (`addq $1, %r12`)
